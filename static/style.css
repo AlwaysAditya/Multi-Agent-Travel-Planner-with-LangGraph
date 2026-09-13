@@ -482,15 +482,3 @@ footer {
         padding: 20px;
     }
 }
-
-#pdfContent {
-    margin: 0;
-    padding: 10px;
-}
-#pdfContent > *:first-child {
-    margin-top: 0 !important;
-}
-#pdfContent h1, #pdfContent h2, #pdfContent h3,
-#pdfContent p, #pdfContent li, #pdfContent tr, #pdfContent img {
-    page-break-inside: avoid;
-}

@@ -135,17 +135,12 @@ function downloadPDF() {
 
     const downloadBtn = document.querySelector(".download-btn");
     const oldText = downloadBtn.textContent;
+
     downloadBtn.textContent = "Preparing PDF...";
     downloadBtn.disabled = true;
 
-    // Reset spacing that causes the blank first page
-    pdfContent.style.margin = "0";
-    pdfContent.style.padding = "10px";
-    const firstChild = pdfContent.firstElementChild;
-    if (firstChild) firstChild.style.marginTop = "0";
-
     const options = {
-        margin: [0.4, 0.4, 0.4, 0.4],
+        margin: 0.5,
         filename: "ai-travel-plan.pdf",
         image: {
             type: "jpeg",
@@ -154,9 +149,7 @@ function downloadPDF() {
         html2canvas: {
             scale: 2,
             useCORS: true,
-            backgroundColor: "#ffffff",
-            windowWidth: pdfContent.scrollWidth,
-            scrollY: 0
+            backgroundColor: "#ffffff"
         },
         jsPDF: {
             unit: "in",
@@ -164,27 +157,27 @@ function downloadPDF() {
             orientation: "portrait"
         },
         pagebreak: {
-            mode: ["css", "legacy"],
-            avoid: ["h1", "h2", "h3", "p", "li", "tr", "img"]
+            mode: ["avoid-all", "css", "legacy"]
         }
     };
 
-    // Ensure layout has settled before capture (fixes 0-height capture if content was just unhidden)
-    requestAnimationFrame(() => {
-        html2pdf()
-            .set(options)
-            .from(pdfContent)
-            .save()
-            .then(() => {
-                downloadBtn.textContent = oldText;
-                downloadBtn.disabled = false;
-            })
-            .catch(() => {
-                downloadBtn.textContent = oldText;
-                downloadBtn.disabled = false;
-                showError("Could not download PDF.");
-            });
-    });
+    html2pdf()
+        .set(options)
+        .from(pdfContent)
+        .save()
+        .then(() => {
+            downloadBtn.textContent = oldText;
+            downloadBtn.disabled = false;
+        })
+        .catch(() => {
+            downloadBtn.textContent = oldText;
+            downloadBtn.disabled = false;
+            showError("Could not download PDF.");
+        });
 }
 
-    
+document.addEventListener("keydown", function(event) {
+    if (event.ctrlKey && event.key === "Enter") {
+        sendMessage();
+    }
+});
