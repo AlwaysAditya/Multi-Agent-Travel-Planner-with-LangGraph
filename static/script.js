@@ -149,11 +149,7 @@ function downloadPDF() {
         html2canvas: {
             scale: 2,
             useCORS: true,
-            backgroundColor: "#ffffff",
-            scrollX: 0,
-            scrollY: 0,
-            windowWidth: pdfContent.scrollWidth,
-            windowHeight: pdfContent.scrollHeight
+            backgroundColor: "#ffffff"
         },
         jsPDF: {
             unit: "in",
