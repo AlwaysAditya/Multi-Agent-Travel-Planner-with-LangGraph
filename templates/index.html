@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -23,7 +22,7 @@
 
         <section class="hero-section">
             <div class="badge">
-                ✈️ TripMate AI — A Multi-Agent Travel Planner with LangGraph & MCP
+                ✈️ TripMate AI — A Multi-Agent Travel Planner with LangGraph
             </div>
 
             <h1>
@@ -41,7 +40,7 @@
                 <div>
                     <h2>Where do you want to go?</h2>
                     <p>
-                        Example: Plan a complete 7 days Japan trip from Bangladesh under 2 lakhs.
+                        Example: Plan a complete 7 days Greece trip from India under 5 lakhs
                     </p>
                 </div>
 
@@ -54,7 +53,7 @@
             <div class="input-area">
                 <textarea
                     id="userInput"
-                    placeholder="Plan a complete 7 days Japan trip including flights, hotels and sightseeing under 2 lakhs..."
+                    placeholder="Plan a complete 7 days Japan trip including flights, hotels and sightseeing under 5 lakhs..."
                 ></textarea>
 
                 <button id="sendBtn" onclick="sendMessage()">
@@ -64,20 +63,20 @@
             </div>
 
             <div class="quick-prompts">
-                <button onclick="setPrompt('Plan a complete 7 days Japan trip from Bangladesh including flights, hotels and sightseeing under 2 lakhs.')">
-                    Japan Trip
+                <button onclick="setPrompt('Plan a 3 days Dehradun trip from New Delhi with flights, hotels and sightseeing.')">
+                    Dehradun Trip
                 </button>
 
-                <button onclick="setPrompt('Plan a 5 days Dubai trip from Dhaka with flights, hotels and sightseeing.')">
+                <button onclick="setPrompt('Plan a 5 days Goa trip from New Delhi with flights, hotels and sightseeing.')">
+                    Goa Trip
+                </button>
+
+                <button onclick="setPrompt('Plan a complete 7 days Tokyo trip from India including flights, hotels and sightseeing under 5 lakhs.')">
+                    Tokyo Trip
+                </button>
+
+                <button onclick="setPrompt('Plan a 5 days Dubai trip from India with flights, hotels and sightseeing.')">
                     Dubai Trip
-                </button>
-
-                <button onclick="setPrompt('Plan a 7 days Thailand trip from Bangladesh with budget hotels and sightseeing.')">
-                    Thailand Trip
-                </button>
-
-                <button onclick="setPrompt('Give me all country flight info.')">
-                    Global Flights
                 </button>
             </div>
 
